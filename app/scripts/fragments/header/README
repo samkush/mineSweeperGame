@@ -1,0 +1,5 @@
+
+IMPORT:
+
+@import "../scripts/fragments/header/css/header.scss"; >> main.scss
+@import <script src="scripts/fragments/header/header.js"></script> >> index.html

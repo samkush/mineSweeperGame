@@ -1,0 +1,43 @@
+<div class="data-history padding-top-1">
+  <section class="site-width section-title clearfix">
+
+    <div class="clearfix">
+      <form name="form" class="form-inline" ng-submit="onSubmit()">
+
+        <div class="form-group">
+          <div class="padding-free clearfix">
+            <label class="custom-label padding-left-free">Date</label>
+            <!-- <div class="col-sm-12 padding-free"> -->
+              <ng-combo-date-picker class="row-span monthly-view-picker" ng-order="ymd" name="visitToDate" ng-min-date="{{min.toString()}}" ng-max-date="{{ max.toString() }}" ng-model="date" ng-required="true" ng-disabled="true" readonly="true" ></ng-combo-date-picker>
+            <!-- </div> -->
+          </div>
+        </div>
+
+        <div class="form-group pull-right">
+          <button type="submit" class="btn btn-primary ng-binding mrg-mov" ng-disabled="loading" ng-click="submit()">
+            <span ng-hide="loading" class="glyphicon glyphicon-search" aria-hidden="false"></span>
+            <i ng-show="loading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate ng-hide" aria-hidden="true"></i>
+            {{loading ? 'Searching..' : 'Search'}}
+          </button>
+        </div>
+
+
+
+      </form>
+    </div>
+  </section>
+  <section class="site-width section-title clearfix text-center">
+    <div class="heatmap" filter="filter" ng-model="chartData"></div>
+
+    <div ng-bind-html="template">
+
+    </div>
+
+    <tile ng-model="template"></tile>
+    <div class="tile">
+
+    </div>
+
+
+  </section>
+</div>

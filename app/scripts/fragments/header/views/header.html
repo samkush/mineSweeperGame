@@ -1,0 +1,60 @@
+<nav class="navbar navbar-fixed-top navbar-md" role="navigation">
+  <div class="site-width">
+
+    <a class="navbar-brand" ng-href="{{path!='/change-password' ? '#/':''}}">
+      <!-- <img src="images/logo-transparent-white.png" alt="{{config.brand}}"/> -->
+      <h5>MineSweeper</h5>
+    </a>
+
+    <div class="navbar-header" ng-if="isUserLoggedin">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- {{config.serverStatus.connected}} -->
+    <div class="collapse nav-main navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="inner-menu" ng-if="isUserLoggedin">
+        <ul class="nav navbar-nav">
+          <li ng-repeat="item in menu">
+            <a ng-href="{{item.url}}" class="{{item.class}}">
+              {{item.label}}
+            </a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" ng-show="(!currentUser.user.tags.length || path!='/change-password')">
+
+          <li>
+            <span class="glyphicon serverStatusIcon"  title="Error occured while connecting to server" ng-class="{'glyphicon-exclamation-sign' : !config.serverStatus.connected}"></span>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle nav-back" data-toggle="dropdown" role="" aria-haspopup="true" aria-expanded="false">
+              <i class="spacer _10"></i>
+              {{currentUser.user.name | word: 1}}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- <li ng-show="session.isCapableOf('root')">
+                <a class="anchorNav " ng-href="{{config.serverStatus.url}}/explorer/" target="_blank">API Explorer</a>
+              </li> -->
+              <li  ng-show="session.isCapableOf('root') || session.isCapableOf('can_manage_user')">
+                <a class="anchorNav" ng-href="#/manage-user">Manage User</a>
+              </li>
+            
+
+              <!-- <li ng-show="session.isCapableOf('root')">
+                <a class="anchorNav" ng-href="#/manage-measure/">Manage Measure</a>
+              </li> -->
+              <li class="separator"></li>
+              <li><a class="anchorNav" ng-href="#/logout">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</nav>

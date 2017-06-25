@@ -1,0 +1,32 @@
+.mine-sweeper {
+
+  .table > thead > tr > th, .table > tbody > tr > td {
+     padding: 10px !important;
+  }
+
+  .content.filter .form-group {
+    margin-bottom: 0;
+  }
+
+  .row {
+    margin: 0;
+  }
+
+  .minefield {
+    line-height:1;
+    border-spacing:1;
+}
+
+.minefield td {
+    padding:1
+}
+.incHeight{
+  height: 45px;
+
+}
+.padding-top-1 {
+  padding-top: 70px;
+  padding-left: 449px;
+}
+
+}

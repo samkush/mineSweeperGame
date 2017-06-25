@@ -1,0 +1,7 @@
+
+IMPORT:
+
+@import "..\scripts\pages\manage\manage-config\css\style.scss"; >> main.scss
+@import <script src="scripts\pages\manage\manage-config\add-config.js"></script> >> index.html
+@import <script src="scripts\pages\manage\manage-config\edit-config.js"></script> >> index.html
+@import <script src="scripts\pages\manage\manage-config\manage-config.js"></script> >> index.html

@@ -1,0 +1,160 @@
+/* header */
+
+// .navbar-header {
+//   .inner-menu:first-child{
+//     .navbar-nav{
+//       // ul{
+//         li{
+//           a{
+//             padding: 10px;
+//             // padding-right: 31px;
+//             // text-align: center;
+//           }
+//         }
+//       // }
+//     }
+//   }
+// }
+
+.account  {
+    margin-right: 30px;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: transparent;
+}
+.navbar-fixed-top .dropdown {
+  .dropdown-menu {
+    // right: 16px !important;
+  }
+
+  .progress {
+    margin: 5px 20px 18px 20px;
+  }
+}
+
+.header {
+  h5 {
+    line-height: 9px;
+    font-size: 15px;
+  }
+
+  a {
+    text-decoration: none;
+    color: $brand-text-color;
+  }
+
+  .navbar {
+    // background-image: -webkit-linear-gradient(top, #3dcd58 0%, #3dcd58 100%);
+    background-color: #B7472A;
+    // background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3dcd58), color-stop(100% #3dcd58));
+    // background-image: -webkit-linear-gradient(top, #3dcd58 0%, #3dcd58 100%);
+    // background-image: -moz-linear-gradient(top, #3dcd58 0%, #3dcd58 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B7472A', endColorstr='#B7472A', GradientType=0);
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B7472A',endColorstr='#B7472A',GradientType=0);
+    background-image: -ms-linear-gradient(top,#B7472A 0%, #B7472A 100%);
+    background-image: -o-linear-gradient(top, #B7472A 0%, #B7472A 100%);
+    background-image: linear-gradient(top, #B7472A 0%, #B7472A 100%);
+    margin-bottom: 0;
+    border: none;
+    max-height: 50px;
+    border-radius: 0;
+
+    background-color: $brand-color;
+    .navbar-brand {
+      img {
+        height: 100%;
+      }
+    }
+  }
+  .nav > li > a:hover,
+  .nav > li > a:focus {
+      text-decoration: none;
+      border-bottom: none;
+      background-color: transparent;
+      // color: #fff;
+  }
+    // new inport
+    .nav.navbar-nav {
+      li a:hover, li a:focus, li a:active {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
+    //import end
+  .nav > li > a {
+    &.current {
+      text-decoration: none;
+      border-bottom: none;
+      //background-color: #444;
+      // color: #f1f1f1;
+      background: rgba(0, 0, 0, 0.1);
+
+
+    }
+    -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+    -moz-transition: background-color 0.3s ease, color 0.3s ease;
+    -o-transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .navbar-collapse {
+    // background-image: -webkit-linear-gradient(top, #00b03c 0%, #009c2c 100%);
+    background-color: $brand-color;
+  }
+
+  .navbar-toggle{
+    margin-right : 0px;
+    border: 2px solid white;
+  }
+
+  .navbar-toggle .icon-bar {
+    background-color: white;
+  }
+  .nav-back{
+    background-color: transparent !important;
+  }
+   @media (max-width: $screen-sm) {
+    .anchorNav{
+      color: #fff;
+    }
+    .navbar-nav{
+      margin: 1.5px -15px;
+    }
+  }
+  // this code is for IE9 support (dropdown menu is not showing issue)
+  .navbar-inverse .nav li.dropdown.open > .dropdown-toggle,
+  .navbar-inverse .nav li.dropdown.active > .dropdown-toggle,
+  .navbar-inverse .nav li.dropdown.open.active > .dropdown-toggle,
+  .navbar,
+  .navbar-inverse .navbar-inner {
+      filter: none;
+      background-image: none;
+  }
+  // this code is for IE9 support (dropdown menu is not showing issue)
+
+
+
+}
+
+/* CSS used here will be applied after bootstrap.css */
+
+/* Create a medium height at 40px */
+.navbar-md {min-height:40px}
+.navbar-md .navbar-brand {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.navbar-md .navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.navbar-md .navbar-brand {height: 40px}
+.navbar-md .navbar-toggle {margin: 6px 12px 6px 0px; padding: 6px 7px 6px 7px;}
+.navbar-md .navbar-toggle .icon-bar {width: 19px;}
+// .navbar-nav{padding: 5px;}
+
+
+.navbar-sm {min-height:30px}
+.navbar-sm .navbar-brand,
+.navbar-sm .navbar-nav>li>a {padding-top:5px; padding-bottom:5px}
+.navbar-sm .navbar-brand {height: 30px}
+.navbar-sm .navbar-toggle {margin: 3px 9px 3px 0px; padding: 4px 4px 4px 4px;}
+.navbar-sm .navbar-toggle .icon-bar {width: 16px;}

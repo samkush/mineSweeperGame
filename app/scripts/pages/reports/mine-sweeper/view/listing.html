@@ -1,0 +1,24 @@
+<div class="deployment mine-sweeper">
+  <section class="padding-top-1">
+  <!-- <h3 ng-if="isWinMessageVisible">You won!</h3>
+  <h3 ng-if="hasLostMessageVisible" >you lost!</h3> -->
+  <table class="expectedMinesPlace">
+      <tr ng-repeat="row in expectedMinesPlace.rows">
+          <td ng-repeat="place in row.places" ng-click="placeDetection(place)">
+              <img ng-if="place.isPlaceFilled" class="incHeight" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png" />
+              <img ng-if="!place.isPlaceFilled && place.content == 'empty'" class="incHeight" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/empty.png" />
+              <img ng-if="!place.isPlaceFilled && place.content == 'mine'" class="incHeight"  src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/mine.png" />
+              <img ng-if="!place.isPlaceFilled && place.content == 1" class="incHeight" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-1.png" />
+              <img ng-if="!place.isPlaceFilled && place.content == 2" class="incHeight" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-2.png" />
+              <img ng-if="!place.isPlaceFilled && place.content == 3" class="incHeight" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-3.png" />
+              <img ng-if="!place.isPlaceFilled && place.content == 4" class="incHeight" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-4.png" />
+              <img ng-if="!place.isPlaceFilled && place.content == 5" class="incHeight" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-5.png" />
+              <img ng-if="!place.isPlaceFilled && place.content == 6" class="incHeight" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-6.png" />
+              <img ng-if="!place.isPlaceFilled && place.content == 7" class="incHeight" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-7.png" />
+              <img ng-if="!place.isPlaceFilled && place.content == 8" class="incHeight" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-8.png" />
+          </td>
+      </tr>
+  </table>
+</section>
+
+</div>

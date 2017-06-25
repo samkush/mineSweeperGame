@@ -1,0 +1,5 @@
+
+IMPORT:
+
+@import "../scripts/fragments/footer/css/footer.scss"; >> main.scss
+@import <script src="scripts/fragments/footer/footer.js"></script> >> index.html

@@ -1,0 +1,32 @@
+.confirmation-dialog{
+  .modal-dialog {
+      width: 384px;
+      margin-top: 14%;
+  }
+
+  .modal-header {
+    border: none;
+    text-align: center;
+  }
+
+  .modal-body {
+    text-align: center;
+    padding: 25px;
+    padding-top: 0;
+  }
+
+  .modal-body p {
+    font-size: x-large;
+  }
+
+  .modal-footer {
+    border: none;
+    text-align: center;
+    padding: 25px;
+    padding-top: 0;
+  }
+
+  .modal-footer button:last-child {
+    width: 60px;
+  }
+}

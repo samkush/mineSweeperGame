@@ -1,0 +1,21 @@
+{
+  "curly":true,
+  "devel":true,
+  "eqeqeq": true,
+  "globals": {
+    "angular": true,
+    "document": true,
+    "window": true,
+    "$": true,
+    "jQuery": true,
+    "require": true,
+    "module": true,
+    "_": true,
+    "Modernizr": true
+  },
+  "indent":2,
+  "quotmark": "single",
+  "strict": true,
+  "trailing": true,
+  "unused":true
+}

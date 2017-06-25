@@ -1,0 +1,36 @@
+<div class="server-status">
+  <section class="content site-width">
+    <center class="progress-box">
+      <span ng-if="no_process_running">No Process Running</span>
+      <p>
+        <small class="progress-msg"></small>
+      </p>
+
+      <span class="icon-smile smiley" ng-show="(!is_permitted_to_start_process && config.serverStatus.dataProcessing == 'false')"></span>
+
+      <div class="progress hide">
+        <div class="progress-bar" role="progressbar">
+          <span></span>
+        </div>
+      </div>
+
+      <!-- <button ng-if="is_permitted_to_start_process" class="btn btn-primary progress-btn" type="button" ng-click="startProcessing()" ng-disabled="isProcessing">
+        Start Processing
+      </button> -->
+
+    </center>
+
+    <code class="logs alert alert-info" ng-if="progress_logs.length">
+      <div ng-repeat="obj in progress_logs">
+        {{obj}}
+      </div>
+    </code>
+
+    <code class="logs alert alert-warning" ng-if="error_logs.length">
+      <div ng-repeat="obj in error_logs">
+        {{obj}}
+      </div>
+    </code>
+
+  </section>
+</div>

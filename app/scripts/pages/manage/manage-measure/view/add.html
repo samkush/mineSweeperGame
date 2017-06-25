@@ -1,0 +1,98 @@
+<div class="padding-top-1 manage-user">
+  <section class="content no-pad site-width header-menu content-bg text-center">
+    <div class="inline-block text-center header-title">
+      <a style="text-decoration: blink;padding-left: 65px;">ADD Measure</a>
+    </div>
+    <i class="spacer _10"></i>
+    <div history-back class="btn btn-default btn-sm pull-right back-button" style="margin: 3px 16px 0px 0px;font-size: 9px;">
+      <span class="icon-arrow-left back-arrow"></span>
+    </div>
+  </section>
+
+  <section class="content site-width content-bg filter">
+    <div class="clearfix">
+      <div class="col-lg-12 col-md-12">
+        <form name="form" ng-submit="onSubmit()" ng-init="setFormScope(this)" novalidate>
+
+          <div class="clearfix">
+
+            <div class="form-group margin-bottom-1" ng-class="{ 'has-error' : form.name.$invalid && (form.name.$dirty || form.$submitted)}">
+              <label>Measure Name</label> <span class="text-danger small">{{compulsoryField}}</span>
+              <input type="text" name="name" class="form-control" ng-model="measure.name" placeholder="Measure Name" ng-required="true">
+              <p ng-show="form.name.$error.required && (form.name.$dirty || form.$submitted)" class="help-block">Measure Name is required.</p>
+            </div>
+
+            <div class="form-group margin-bottom-1" ng-class="{ 'has-error' : form.measure_id.$invalid && (form.measure_id.$dirty || form.$submitted)}">
+              <label>Measure Id</label> <span class="text-danger small">{{compulsoryField}}</span>
+              <input type="text" name="measure_id" class="form-control" ng-model="measure.measure_id" placeholder="Measure Id" ng-required="true">
+              <p ng-show="form.measure_id.$error.uniqueness && (form.measure_id.$dirty || form.$submitted)" class="help-block">Measure Id is already Exisits.</p>
+              <p ng-show="form.measure_id.$error.required && (form.measure_id.$dirty || form.$submitted)" class="help-block">Measure Id is required.</p>
+            </div>
+
+            <div class="form-group margin-bottom-1" ng-class="{ 'has-error' : form.data_point.$invalid && (form.data_point.$dirty || form.$submitted)}">
+              <label>Data Point</label>
+              <input type="text" name="data_point" class="form-control" ng-model="measure.dataPoint" placeholder="Data Point">
+              <p ng-show="form.data_point.$error.required && (form.data_point.$dirty || form.$submitted)" class="help-block">Data Point is required.</p>
+            </div>
+
+            <div class="form-group margin-bottom-1">
+              <label>Condition</label>
+              <input type="text" name="Condition" class="form-control" ng-model="measure.condition" placeholder="Condition">
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error' : form.frequencies.$invalid && (form.frequencies.$dirty || form.$submitted)}">
+              <label>Frequencies</label>
+              <div>
+                <button-group name="frequencies" config="frequencies" ng-model="measure.frequencies" ng-required="true"></button-group>
+              </div>
+              <p ng-show="form.frequencies.$error.required && (form.frequencies.$dirty || form.$submitted)" class="help-block">Measure should have least one frequency.</p>
+            </div>
+
+            <div class="form-group" ng-class="{ 'has-error' : form.type.$invalid && (form.type.$dirty || form.$submitted)}">
+              <label>Type</label>
+              <div>
+                <button-group name="type" config="type" ng-model="measure.type" ng-required="true"></button-group>
+              </div>
+              <p ng-show="form.type.$error.required && (form.type.$dirty || form.$submitted)" class="help-block">Please select nature of Measure.</p>
+            </div>
+
+            <div class="form-group" ng-show="measure.type == 'calculated'" ng-class="{ 'has-error' : form.dependencies.$invalid && (form.dependencies.$dirty || form.$submitted)}">
+            <label>Dependency</label>
+            <div>
+              <selectize name="dependency" options='measureSelectizeConfig.options' placeholder='Enter a Measure Name Or Id...' config="measureSelectizeConfig" ng-model="measure.dependencies"></selectize>
+            </div>
+            <p ng-show="form.dependencies.$error.required && (form.dependencies.$dirty || form.$submitted)" class="help-block">Please select type of Measure.</p>
+          </div>
+
+          <div class="form-group" ng-show="measure.type == 'calculated'" ng-class="{ 'has-error' : form.calculate.$invalid && (form.calculate.$dirty || form.$submitted)}">
+            <label>Calculate</label>
+            <div>
+              <textarea rows="20" ui-codemirror ui-codemirror-opts="editorOptions" ng-model="measure.calculate"></textarea>
+            </div>
+          </div>
+
+            <div class="form-group margin-top-1 margin-bottom-1 clearfix" ng-class="{ 'has-error' : form.status.$invalid && (form.status.$dirty || form.$submitted)}">
+              <label>Status</label>
+              <div>
+                <button-group name="status" config="status" ng-model="measure.status" ng-required="true"></button-group>
+              </div>
+              <p ng-show="form.status.$error.required && (form.status.$dirty || form.$submitted)" class="help-block">Status is required..</p>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <button type="submit" ng-disabled="statuses.submitting" class="btn btn-primary">
+                Save
+              </button>
+              <div class="form-status inline-block">
+                <div ng-show="statuses.submitting" class="text-info small">Saving please wait!</div>
+                <div ng-show="statuses.saved" class="text-success small">Saved!</div>
+                <div ng-show="statuses.error" class="text-danger small">Something went wrong!</div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

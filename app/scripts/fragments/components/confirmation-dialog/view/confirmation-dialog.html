@@ -1,0 +1,24 @@
+<div class="confirmation-dialog">
+  <div class="modal-header">
+    <h3 class="modal-title">{{modalData.title}}</h3>
+  </div>
+  <div class="modal-body">
+    <span ng-bind-html="modalData.body"></span>
+    <div class="margin-top-1" ng-if="modalData.hasTextArea">
+        <textarea class="form-control" rows="5" ng-model="modalData.desc"></textarea>
+    </div>
+    <div class="margin-top-1" ng-if="modalData.hasTextField">
+        <input class="form-control" type="{{modalData.type}}" ng-model="modalData.desc">
+    </div>
+    <div class="margin-top-1" ng-if="modalData.hasImageEmoji">
+        <img src="images/lost_emoji.jpg" type="{{modalData.type}}" ng-model="modalData.desc" />
+    </div>
+    <div class="margin-top-1" ng-if="modalData.hasImageEmojiSmile">
+        <img src="images/smiling_emoji.jpg" type="{{modalData.type}}" ng-model="modalData.desc" />
+    </div>
+  </div>
+  <div class="modal-footer text-center">
+      <button ng-if="modalData.negativeBtn" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">{{modalData.negativeBtn}}</button>
+      <button ng-if="modalData.positiveBtn" class="btn btn-primary" ng-click="ok()">{{modalData.positiveBtn}}</button>
+  </div>
+</div>

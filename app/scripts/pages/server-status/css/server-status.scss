@@ -1,0 +1,27 @@
+.progress-box {
+    margin: 100px auto;
+    max-width: 700px;
+}
+.progress-percent-val {
+  color: #fff;
+  white-space: nowrap;
+}
+.logs {
+  width: 100%;
+  display: block;
+  max-height: 300px;
+  overflow: auto;
+  white-space: nowrap;
+
+  div {
+    padding: 5px;
+    &:hover {
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+.smiley {
+  color: #ddd;
+  font-size: 50px;
+}

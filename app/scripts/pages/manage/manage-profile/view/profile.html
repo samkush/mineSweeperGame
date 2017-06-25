@@ -1,0 +1,61 @@
+<div class="padding-top-1 manage-user">
+
+  <section class="section-title site-width clearfix">
+    <div class="title">Manage Profile</div>
+    <a history-back class="btn btn-default form-group pull-right">
+      <i class="glyphicon glyphicon-arrow-left"></i>
+      Back
+    </a>
+  </section>
+
+  <section class="section-title site-width clearfix">
+    <div class="clearfix">
+      <div class="col-lg-12 col-md-12">
+        <form name="form" ng-submit="onSubmit()" ng-init="setFormScope(this)" novalidate>
+          <div class="clearfix">
+
+            <div class="form-group margin-bottom-1" ng-class="{ 'has-error' : form.name.$invalid && (form.name.$dirty || form.$submitted)}">
+              <label>Name</label> <span class="text-danger small">{{compulsoryField}}</span>
+              <input type="text" name="name" class="form-control" ng-model="user.name" placeholder="Name" ng-required="true">
+              <p ng-show="form.name.$error.required && (form.name.$dirty || form.$submitted)" class="help-block">Name is required.</p>
+            </div>
+
+            <div class="form-group margin-bottom-1" ng-class="{ 'has-error' : form.email.$invalid && (form.email.$dirty || form.$submitted)}">
+              <label>E-Mail</label> <span class="text-danger small">{{compulsoryField}}</span>
+              <input type="email" name="email" autofill="false" class="form-control" ng-model="user.email" placeholder="E-mail" ng-required="true">
+              <p ng-show="form.email.$error.required && (form.email.$dirty || form.$submitted)" class="help-block">Email is required.</p>
+              <p ng-show="form.email.$error.email && (form.$submitted)" class="help-block">Invalid email address.</p>
+            </div>
+
+            <div class="clearfix">
+              <div class="form-group margin-bottom-1" ng-class="{ 'has-error' : form.password.$invalid && (form.password.$dirty || form.$submitted)}">
+                <label>Password</label> <span class="text-danger small">{{compulsoryField}}</span>
+                <input type="password" name="password"  class="form-control" ng-model="user.password" placeholder="Password">
+                <p ng-show="form.password.$error.required && (form.password.$dirty || form.$submitted)" class="help-block">Password is required.</p>
+              </div>
+              <div class="form-group margin-bottom-1" ng-class="{ 'has-error' : form.confirmPassword.$invalid && (form.confirmPassword.$dirty || form.confirmPassword.passwordVerify || form.$submitted)}">
+                <label>Confirm Password</label> <span class="text-danger small">{{compulsoryField}}</span>
+                <input type="password" name="confirmPassword" class="form-control" ng-model="user.confirmPassword" placeholder="Confirm Password" data-password-verify="user.password">
+                <p ng-show="form.confirmPassword.$error.required && (form.confirmPassword.$dirty || form.$submitted)" class="help-block">Confirm Password is required.</p>
+                <p ng-show="form.confirmPassword.$error.passwordVerify && (form.$submitted)" class="help-block"> Password does not match.</p>
+              </div>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <button type="submit" ng-disabled="statuses.submitting" class="btn btn-primary">
+                Save
+              </button>
+              <div class="form-status inline-block">
+                <div ng-show="statuses.submitting" class="text-info small">Saving please wait!</div>
+                <div ng-show="statuses.saved" class="text-success small">Saved!</div>
+                <div ng-show="statuses.error" class="text-danger small">Something went wrong!</div>
+                <div ng-show="statuses.error" class="text-danger small">{{message}}</div>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

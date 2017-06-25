@@ -1,0 +1,7 @@
+
+This page shows progress bar for data importing and processing
+
+IMPORT:
+
+@import "../scripts/pages/server-status/css/style.scss"; >> main.scss
+@import <script src="scripts/pages/server-status/server-status.js"></script> >> index.html

@@ -1,0 +1,7 @@
+
+IMPORT:
+
+@import "..\scripts\pages\manage\manage-user\css\style.scss"; >> main.scss
+@import <script src="scripts\pages\manage\manage-user\add.js"></script> >> index.html
+@import <script src="scripts\pages\manage\manage-user\edit.js"></script> >> index.html
+@import <script src="scripts\pages\manage\manage-user\lisiting.js"></script> >> index.html

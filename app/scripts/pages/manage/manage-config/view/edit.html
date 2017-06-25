@@ -1,0 +1,57 @@
+<div class="row wrapper manage-talent site-width top-spaceing">
+
+  <section class="section-title site-width clearfix">
+    <div class="title">Edit Config</div>
+    <a history-back class="btn btn-default form-group pull-right">
+      <i class="glyphicon glyphicon-arrow-left"></i>
+      Back
+    </a>
+  </section>
+
+  <section class="section-title site-width clearfix">
+    <div class="clearfix">
+      <form name="userForm" ng-submit="onSubmit()" novalidate>
+        <div class="margin-bottom-2 col-md-12 padding-free form-content">
+
+          <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && (userForm.name.$dirty || userForm.$submitted)}">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" ng-model="config.name" placeholder="Name" ng-required="true">
+            <p ng-show="userForm.name.$error.required && (userForm.name.$dirty || userForm.$submitted)" class="help-block">Name is required.</p>
+          </div>
+
+          <div class="form-group" ng-class="{ 'has-error' : userForm.key.$invalid && (userForm.key.$dirty || form.$submitted)}">
+            <label>Key</label>
+            <input type="text" name="key" class="form-control" ng-model="config.key" placeholder="key" ng-required="true">
+            <p ng-show="userForm.key.$error.required && (userForm.key.$dirty || userForm.$submitted)" class="help-block">key is required.</p>
+          </div>
+
+          <div class="form-group margin-bottom-1 clearfix" ng-class="{ 'has-error' : form.SchneiderEmployee.$invalid && (form.SchneiderEmployee.$dirty || form.$submitted)}">
+            <label>Content Type</label>
+            <div>
+              <button-group name="contentTypeConfig" config="contentTypeConfig" ng-model="config.type" ng-required="true"></button-group>
+            </div>
+          </div>
+
+          <div class="form-group" ng-class="{ 'has-error' : userForm.values.$invalid && (userForm.values.$dirty || userForm.$submitted)}">
+            <label>Values</label>
+            <textarea name="values" ng-model="config.values" placeholder="Enter Values" rows="6" class="form-control" ng-required="true"></textarea>
+            <p ng-show="userForm.values.$error.required && (userForm.values.$dirty || userForm.$submitted)" class="help-block">User must have least one value.</p>
+            <p ng-show="userForm.values.$error.invalidJson && (userForm.values.$dirty)" class="help-block">Invalid Json.</p>
+          </div>
+
+          <div class="text-center form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <div class="form-status inline-block">
+              <div ng-show="statuses.submitting" class="text-info small">Saving please wait!</div>
+              <div ng-show="statuses.saved" class="text-success small">Saved!</div>
+              <div ng-show="statuses.error" class="text-danger small">Something went wrong!</div>
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+
+  </section>
+</div>

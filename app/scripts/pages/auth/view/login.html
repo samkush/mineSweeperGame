@@ -1,0 +1,46 @@
+<div class="login-page row">
+
+	<div class="row">
+		<section>
+
+				<div class="login-section">
+					<div class="login-box {{ loading ? 'loading' : '' }}" ng-class="(error && 'error')" >
+						<div class="system-icon">
+							<!-- <img src="images/chili-icon.png" style="height: 50px; width: 50px;"alt="{{config.brand}}" /> -->
+						</div>
+						<form name="form" ng-submit="login()" role="form">
+								<div class="message alert-danger margin-bottom-1" ng-show="message">
+									<span class="text-danger">{{message}}</span>
+								</div>
+								<div class="alert alert-success"  ng-show="successMessage">
+									<a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									<strong>Success!</strong> {{successMessage}}
+								</div>
+								<div class="row">
+									<input type="text" name="username" class="form-control" ng-model="username" placeholder="Username / Email" required />
+								</div>
+								<div class="row">
+									<input type="password" name="password" class="form-control" ng-model="password" placeholder="Password" required>
+								</div>
+								<!-- <div class="row button-row">
+									<button class="btn btn-block" type="submit">Login</button>
+								</div> -->
+								<div class="row button-row">
+									<button class="btn btn-block lg-colr" type="submit" ng-disabled="loading">
+										<i ng-show="loading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate spinner-padding"></i>
+										{{loading ? 'Loading...':'Login'}}
+									</button>
+								</div>
+
+								<div class="row forgot-password">
+									<span class="spacer _10"></span>
+									<a ng-href="#/forgot-password">Forgot Password?</a>
+								</div>
+						</form>
+					</div>
+			</div>
+
+		</section>
+		<!-- <div ng-include src="'scripts/pages/auth/view/slider.html'"></div> -->
+	</div>
+</div>

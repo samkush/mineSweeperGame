@@ -1,0 +1,88 @@
+<div class="padding-top-1 manage-user">
+  <section class="content no-pad site-width header-menu content-bg">
+    <div class="tab-content">
+      <ul class="tabs">
+        <li>
+          <a class="anchor-decoration-none" href="#/manage-user">
+            Manage Measure
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+    <section class="content site-width content-bg filter">
+      <div class="clearfix">
+        <form name="form" ng-submit="onSubmit()">
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <input type="text" class="form-control" ng-model="search.query" placeholder="Search by Name or ID">
+      </div>
+      <div class="col-lg-4 col-md-4 toolbar-btn-spacing">
+          <button-group name="filterData" config="filterData" ng-model="search.measureStatus" ng-required="true"></button-group>
+      </div>
+      <div class="col-lg-4 col-md-4  text-right">
+        <a class="btn btn-primary"  ng-href="#/manage-measure/add">
+          <i class="glyphicon glyphicon-plus"></i> Add Measure
+        </a>
+      </div>
+    </div>
+
+
+    </section>
+    <section class="content site-width content-bg filter">
+      <div class="clearfix">
+        <div class="margin-bottom-1" style="text-align: -webkit-center;">
+          <small ng-if="search.count">
+            <ng-pluralize count="search.count"
+                   when="{'0': '0 record found.',
+                          'one': '{{search.count}} record found.',
+                          'other': '{{search.count}} records found.'}">
+            </ng-pluralize>
+          </small>
+        </div>
+        <div class="text-danger text-center" ng-show="noUserAvailable"> No Mesures Available</div>
+
+        <div class="col-md-12">
+          <div class="item-list">
+
+            <div class="item box-spaceing" ng-class=" {'inactive': user.tags.indexOf('inactive') > -1, 'active': user.tags.indexOf('inactive') < 0}" ng-repeat="measure in measures track by $index" ng-cloak>
+
+              <div class="item-header">
+                <span>
+                  {{measure.name}}
+                </span>
+                <span data-toggle="tooltip" data-placement="right" title="{{ user.tags.indexOf('inactive') > -1 ? 'Measure Is Inactive' : '' }}" class="inactive-status glyphicon" ng-class="measure.tags.indexOf('inactive') > -1 ? 'glyphicon glyphicon-ban-circle' : ''"></span>
+                <div ng-if="currentUser.user.capabilities.indexOf('root') > -1 || (currentUser.user.capabilities.indexOf('admin') > -1 && user.capabilities.indexOf('admin') < 0)" class="pull-right edit-btn">
+                  <a ng-click="deleteMeasure(measure);" style="color:#626469">delete</a></div>
+                  <span class="pull-right edit-btn spacer _1"></span>
+                  <div class="pull-right edit-btn">
+                    <a ng-href="#manage-measure/edit/{{measure.id}}" style="border-right: 1px solid #aaa;padding: 0 10px;color:#626469">
+                      edit
+                    </a>
+                  </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="pager">
+          <li>
+            <button class="btn btn-default dropdown-toggle" type="button" ng-click="prev()" ng-disabled="!(search.page > 1)">
+                <i ng-show="prevPaginateLoading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></i>
+                {{prevPaginateLoading ? 'Loading...' : 'Previous'}}
+            </button>
+          </li>
+          <li ng-if="search.page && search.pages" class="page-indicator">{{search.page}} of {{search.pages}}</li>
+          <li>
+            <button class="btn btn-default dropdown-toggle" type="button" ng-click="next()" ng-disabled="!(search.page < search.pages  && search.pages)" >
+              <i ng-show="nextPaginateLoading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></i>
+              {{nextPaginateLoading ? 'Loading...' : 'Next'}}
+          </button>
+          </li>
+        </ul>
+      </nav>
+  </section>
+
+</div>

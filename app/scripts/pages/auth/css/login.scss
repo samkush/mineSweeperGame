@@ -1,0 +1,218 @@
+$login-border-radius: 10px;
+
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+
+.login-section{
+  position: absolute;
+  z-index: 999;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  -webkit-transition: opacity 350ms;
+  -moz-transition: opacity 350ms;
+  -o-transition: opacity 350ms;
+  transition: opacity 350ms;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.slider-image{
+  min-height: 500px !important;
+  width: 100% !important;;
+}
+.carousel-indicators .active{
+  background-color: #009530;
+}
+.login-box {
+  width : 300px;
+  margin: 119px auto 20px auto;
+  padding: 40px;
+  background: rgba(41, 41, 41, 0.83);
+  text-align: center;
+  a:hover, a:focus {
+    color: #fcbb00 !important;
+  }
+  a, u {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  form {
+    margin: 0 auto;
+  }
+
+  .form-control {
+    text-align: center;
+  }
+  .btn {
+    background: #fff;
+  }
+
+  h2 {
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: 0 0 20px 0;
+  }
+  .message {
+    color: $gray-light;
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+  }
+  .row {
+    margin: 0 0 10px 0;
+  }
+  .forgot-password {
+    text-align: center;
+  }
+  .button-row {
+    margin: 20px 0;
+  }
+
+  &.loading {
+    button {
+      @include gradient-striped;
+      @include animation(progress-bar-stripes 2s linear infinite);
+      background-size: 40px 40px;
+    }
+  }
+
+  &.error {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: shake;
+    animation-name: shake;
+
+    .message {
+      color: $brand-danger;
+    }
+  }
+}
+.site-version-section{
+  position: absolute;
+  z-index: 999;
+  top: 465px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 45px;
+  margin: auto;
+  opacity: 1;
+  //visibility: hidden;
+  visibility: visible;
+
+  -webkit-transition: opacity 350ms;
+  -moz-transition: opacity 350ms;
+  -o-transition: opacity 350ms;
+  transition: opacity 350ms;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+}
+.site-version-box{
+  width: 230px;
+  color: white;
+  margin: auto auto auto auto;
+  padding: 10px;
+  background: $brand-color;
+  text-align: center;
+}
+.sign-up {
+  .login-box{
+    .btn{
+      &.active{
+        background-color: #171414;
+      }
+    }
+  }
+}
+
+.color-white {
+  color: #fff;
+}
+@media only screen and (max-device-width: 480px){
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+  .login-section{
+    opacity: 1;
+    visibility: visible;
+  }
+  .login-box {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+.form-control {
+  &.ng-touched.ng-invalid.ng-required {
+    border-color: $brand-danger;
+  }
+}
+.main.brand {
+  display: block;
+  margin: 30px auto 0 auto;
+  width: 200px;
+  text-align: center;
+
+  img {
+    width: 190px;
+    height: auto;
+    margin: 0;
+  }
+}
+.login-page{
+  .login-box{
+    padding: 0px 30px 14px 30px;
+  }
+}
+.system-icon{
+  padding: 15px;
+}
+.lg-colr{
+  background-color: #ff9900;
+  // color: #fff;
+}

@@ -1,0 +1,57 @@
+.manage-user{
+  .tab-content{
+    background-color: #fff;
+  }
+  .nav-tabs{
+    border-bottom: 0;
+  }
+  .tab-content:after{
+    clear: both;
+  }
+  .space-right {
+    margin-right: 5px;
+  }
+
+  .item {
+    margin-top: 5px;
+  }
+
+  .padding-left-1{
+    padding-left : 15px;
+  }
+
+  .item-list {
+    .item{
+      &.inactive {
+        .inactive-status {
+          top: 19px;
+          position: absolute;
+          font-size: 15px;
+          margin-left: 5px;
+          padding: 0;
+          color: $brand-danger;
+        }
+      }
+      .edit-btn{
+        margin-top: 2px;
+      }
+    }
+    .item-header {
+      margin: 0px;
+    }
+    .item:hover {
+      border-color: #18A854;
+    }
+  }
+  .toolbar-btn-spacing{
+    margin-top: 0px;
+    @media (max-width: 580px) {
+      margin-top: 10px;
+   }
+  }
+  .list-li{
+    li {
+      list-style-type: none;
+    }
+  }
+}

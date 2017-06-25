@@ -1,0 +1,159 @@
+<!doctype html>
+<html class="no-js" ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title ng-bind-html="pageMetaTitle"></title>
+	<meta name="description" content="">
+	<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+	<!-- build:css(.) styles/vendor.css -->
+	<link rel="stylesheet" href="bower_components/codemirror/theme/twilight.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css">
+
+	<!-- bower:css -->
+	<link rel="stylesheet" href="bower_components/chartist/dist/chartist.min.css" />
+	<link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+	<link rel="stylesheet" href="bower_components/selectize/dist/css/selectize.css" />
+	<link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.css" />
+	<link rel="stylesheet" href="bower_components/c3/c3.css" />
+	<link rel="stylesheet" href="bower_components/calendar-heatmap/src/calendar-heatmap.css" />
+	<link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.css" />
+	<link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.css" />
+	<!-- endbower -->
+	<!-- endbuild -->
+	<!-- build:css(.tmp) styles/main.css -->
+	<link rel="stylesheet" href="styles/main.css">
+	<!-- endbuild -->
+	<!-- <link rel="stylesheet" href="bower_components/codemirror/theme/twilight.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/codemirror/lib/codemirror.css"> -->
+
+</head>
+<body class="ng-cloak">
+
+	<div class="container-fluid">
+		<header class="header row" ng-controller="Header"></header>
+
+		<div class="loader"></div>
+		<div class="row">
+			<div ng-view="" class="main-view ng-cloak"></div>
+		</div>
+
+		<div class="row">
+			<footer class="main-footer" ng-class="{ 'footer': !isUserLoggedin }" ng-controller="footer">
+				<div class="footerDirective">	</div>
+			</footer>
+		</div>
+	</div>
+	<!-- <bg-slider ng-if="!isUserLoggedin"></bg-slider> -->
+
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+	<script>
+		// !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+		// 	(A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+		// 	r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+		// }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		// ga('create', 'UA-62375656-2');
+	</script>
+
+	<!-- build:js(.) scripts/vendor.js -->
+	<!-- bower:js -->
+	<script src="bower_components/modernizr/modernizr.js"></script>
+	<script src="bower_components/jquery/jquery.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.js"></script>
+	<script src="bower_components/angular-base64/angular-base64.js"></script>
+	<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="bower_components/chartist/dist/chartist.min.js"></script>
+	<script src="bower_components/angular-chartist.js/dist/angular-chartist.js"></script>
+	<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+	<script src="bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+	<script src="bower_components/angular-google-analytics/dist/angular-google-analytics.min.js"></script>
+	<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+	<script src="bower_components/angular-messages/angular-messages.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<script src="bower_components/sifter/sifter.js"></script>
+	<script src="bower_components/microplugin/src/microplugin.js"></script>
+	<script src="bower_components/selectize/dist/js/selectize.js"></script>
+	<script src="bower_components/angular-selectize2/dist/selectize.js"></script>
+	<script src="bower_components/angular-touch/angular-touch.js"></script>
+	<script src="bower_components/angularjs-slider/dist/rzslider.js"></script>
+	<script src="bower_components/async/lib/async.js"></script>
+	<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+	<script src="bower_components/d3/d3.js"></script>
+	<script src="bower_components/c3/c3.js"></script>
+	<script src="bower_components/checklist-model/checklist-model.js"></script>
+	<script src="bower_components/jquery-backstretch/jquery.backstretch.js"></script>
+	<script src="bower_components/jquery.easing/js/jquery.easing.js"></script>
+	<script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+	<script src="bower_components/ngComboDatePicker/source/ngComboDatePicker.js"></script>
+	<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+	<script src="bower_components/selectn/selectn.js"></script>
+	<script src="bower_components/StickyTableHeaders/js/jquery.stickytableheaders.js"></script>
+	<script src="bower_components/underscore/underscore.js"></script>
+	<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+	<script src="bower_components/ment.io/dist/mentio.js"></script>
+	<script src="bower_components/angular-sortable-view/src/angular-sortable-view.js"></script>
+	<script src="bower_components/ng-text-truncate/ng-text-truncate.js"></script>
+	<script src="bower_components/moment/moment.js"></script>
+	<script src="bower_components/calendar-heatmap/src/calendar-heatmap.js"></script>
+	<script src="bower_components/codemirror/lib/codemirror.js"></script>
+	<script src="bower_components/codemirror/mode/xml/xml.js"></script>
+	<script src="bower_components/codemirror/mode/javascript/javascript.js"></script>
+	<script src="bower_components/codemirror/mode/css/css.js"></script>
+	<script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+	<script src="bower_components/ng-dialog/js/ngDialog.js"></script>
+	<!-- endbower -->
+	<!-- endbuild -->
+
+	<!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+	<script src="scripts/app.js"></script>
+
+	<script src="scripts/core/util/util.js"></script>
+	<script src="scripts/core/session/session.js"></script>
+	<script src="scripts/core/config/config.js"></script>
+
+	<script src="scripts/fragments/header/header.js"></script>
+	<script src="scripts/fragments/footer/footer.js"></script>
+
+	<script src="scripts/fragments/components/components.js"></script>
+	<script src="scripts/fragments/components/confirmation-dialog/confirmation-dialog.js"></script>
+	<script src="scripts/fragments/components/popup/popup.js"></script>
+	<script src="scripts/filters/filters.js"></script>
+
+	<script src="scripts/pages/pages.js"></script>
+	<script src="scripts/_services/services.js"></script>
+	<script src="scripts/_services/caching-service.js"></script>
+	<script src="scripts/_services/filter-data.js"></script>
+
+	<script src="scripts/pages/auth/auth.js"></script>
+
+	<script src="scripts/pages/manage/manage.js"></script>
+	<script src="scripts/pages/manage/manage-user/listing.js"></script>
+	<script src="scripts/pages/manage/manage-user/add.js"></script>
+	<script src="scripts/pages/manage/manage-user/edit.js"></script>
+	<script src="scripts/pages/manage/manage-measure/listing.js"></script>
+	<script src="scripts/pages/manage/manage-measure/add.js"></script>
+	<script src="scripts/pages/manage/manage-measure/edit.js"></script>
+	<script src="scripts/pages/manage/manage-profile/profile.js"></script>
+	<script src="scripts/pages/manage/manage-config/manage-config.js"></script>
+	<script src="scripts/pages/manage/manage-config/add-config.js"></script>
+	<script src="scripts/pages/manage/manage-config/edit-config.js"></script>
+
+	<script src="scripts/pages/server-status/server-status.js"></script>
+	<script src="scripts/pages/file-upload/file-upload.js"></script>
+	<script src="scripts/pages/data-history/data-history.js"></script>
+
+	<script src="scripts/pages/reports/reports.js"></script>
+
+	<script src="scripts/pages/reports/mine-sweeper/mine-sweeper.js"></script>
+	
+
+	<!-- endbuild -->
+
+</body>
+</html>

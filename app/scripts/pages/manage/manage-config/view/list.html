@@ -1,0 +1,112 @@
+<div class="row wrapper manage-config site-width top-spaceing manage-listing">
+
+	<section class="section-title site-width clearfix">
+		<div class="title">Manage Config</div>
+		<a class="btn btn-default form-group pull-right" ng-href="#/manage-config/add">
+			<i class="glyphicon glyphicon-plus loading-icon"></i>
+			Add Config
+		</a>
+	</section>
+
+	<section class="site-width section-title clearfix">
+    <div class="clearfix">
+      <form name="form" class="form-inline" ng-submit="onSubmit()">
+
+        <div class="form-group">
+          <input type="text" class="form-control input-search" ng-model="search.query" placeholder="Search Deployment">
+        </div>
+
+        <!-- <div class="form-group pull-right">
+          <button-group name="filterData" config="filterData" ng-model="search.userStatus" ng-required="true"></button-group>
+          <button type="submit" class="btn btn-primary ng-binding mrg-mov" ng-disabled="loading" ng-click="getResults()">
+            <span ng-hide="loading" class="glyphicon glyphicon-search" aria-hidden="false"></span>
+            <i ng-show="loading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate ng-hide" aria-hidden="true"></i>
+            {{ loading ? 'Searching..' : 'Search' }}
+          </button>
+        </div> -->
+
+      </form>
+    </div>
+  </section>
+
+	<section class="site-width section-title clearfix" ng-if="global_message_obj">
+		<div class="text-danger text-center" ng-show="!configs.length">{{ global_message_obj.msg }}</div>
+	</section>
+
+	<section class="site-width section-title clearfix" ng-if="configs.length && search.count != 0">
+		<nav>
+			<ul class="pager">
+				<li>
+					<button class="btn btn-default dropdown-toggle" type="button" ng-click="prev()" ng-disabled="!(search.page > 1)">
+							<i ng-show="prevPaginateLoading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate spinner-padding"></i>
+							{{ prevPaginateLoading ? 'Loading...' : 'Previous' }}
+					</button>
+				</li>
+				<li ng-if="search.page && search.pages" class="page-indicator">{{ search.page }} of {{ search.pages }}
+					(
+            <small ng-if="search.count">
+              <ng-pluralize count="search.count"
+                     when="{'0': '0 record found.',
+                            'one': '{{ search.count }} record found.',
+                            'other': '{{ search.count }} records found.'}">
+              </ng-pluralize>
+            </small>
+          )
+				</li>
+				<li>
+					<button class="btn btn-default dropdown-toggle" type="button" ng-click="next()" ng-disabled="!(search.page < search.pages  && search.pages)" >
+						<i ng-show="nextPaginateLoading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate spinner-padding"></i>
+						{{ nextPaginateLoading ? 'Loading...' : 'Next' }}
+				</button>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="clearfix">
+
+			<div class="col-md-12 padding-free">
+				<div class="item-list">
+					<section class="item box-spaceing" ng-repeat="config in configs" ng-cloak>
+						<div class="item-header">
+							{{ config.name }}
+
+							<div class="pull-right edit-btn"> <a ng-click="deleteConfig(config);">delete</a> </div>
+							<span class="pull-right edit-btn spacer _1"></span>
+							<div class="pull-right edit-btn"> <a class="" ng-href="#/manage-config/edit/{{config.id}}">edit</a> </div>
+
+						</div>
+					</section>
+				</div>
+			</div>
+    </div>
+
+		<nav>
+			<ul class="pager">
+				<li>
+					<button class="btn btn-default dropdown-toggle" type="button" ng-click="prev()" ng-disabled="!(search.page > 1)">
+							<i ng-show="prevPaginateLoading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate spinner-padding"></i>
+							{{ prevPaginateLoading ? 'Loading...' : 'Previous' }}
+					</button>
+				</li>
+				<li ng-if="search.page && search.pages" class="page-indicator">{{ search.page }} of {{ search.pages }}
+					(
+            <small ng-if="search.count">
+              <ng-pluralize count="search.count"
+                     when="{'0': '0 record found.',
+                            'one': '{{ search.count }} record found.',
+                            'other': '{{ search.count }} records found.'}">
+              </ng-pluralize>
+            </small>
+          )
+				</li>
+				<li>
+					<button class="btn btn-default dropdown-toggle" type="button" ng-click="next()" ng-disabled="!(search.page < search.pages  && search.pages)" >
+						<i ng-show="nextPaginateLoading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate spinner-padding"></i>
+						{{ nextPaginateLoading ? 'Loading...' : 'Next' }}
+				</button>
+				</li>
+			</ul>
+		</nav>
+
+	</section>
+</div>
